@@ -1,0 +1,58 @@
+.catalog_product_card {
+    padding: 8px;
+    border-radius: 6px;
+    min-height: 280px;
+
+    &.MuiPaper-elevation1 {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        width: 128px;
+        height: 128px;
+        object-fit: cover;
+        margin-bottom: 8px;
+    }
+
+    .color_card {
+        width: 95px;
+        height: 15px;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: var(--font-sx-small-size);
+            color: var(--color-pink-dark);
+            font-weight: var(--font-semi-bold-weight);
+        }
+    }
+
+    .MuiTypography-body1 {
+        color: var(--color-grey-dark);
+        font-size: var(--font-xx-small-size);
+    }
+
+    .brand {
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 8px;
+    }
+
+    .name {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .price {
+        font-size: var(--font-small-size);
+    }
+}

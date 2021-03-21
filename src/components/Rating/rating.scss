@@ -1,0 +1,18 @@
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .stars_container {
+        padding: 0;
+
+        svg {
+            fill: var(--color-pink-dark);
+        }
+    }
+
+    .reviews {
+        margin-top: -5px;
+        font-size: var(--font-xxx-small-size);
+    }
+}

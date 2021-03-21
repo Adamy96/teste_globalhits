@@ -1,0 +1,22 @@
+.minicart {
+    position: relative;
+
+    .count_container {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: var(--color-pink-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 0;
+        top: -5px;
+        
+        p {
+            font-size: var(--font-sx-small-size);
+            font-weight: var(--font-ultra-weight);
+            color: var(--color-white);
+        }
+    }
+}

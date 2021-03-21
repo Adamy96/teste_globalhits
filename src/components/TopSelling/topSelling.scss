@@ -1,0 +1,22 @@
+.topSelling {
+    padding: 12px 0;
+    color: var(--color-grey-dark);
+
+    .subtitle {
+        font-size: var(--font-xx-small-size);
+        margin-bottom: 8px;
+    }
+
+    .products_container {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .catalog_product_card {
+            width: 48%;
+            margin-bottom: 12px;
+
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.category_page {
+    padding: 115px 8px 0;
+
+    .products_container {
+        margin-top: 16px;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .catalog_product_card {
+            width: 48%;
+            margin-bottom: 12px;
+
+        }
+    }
+}

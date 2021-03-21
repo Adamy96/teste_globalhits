@@ -1,0 +1,33 @@
+.categories {
+    padding: 15px 0px;
+    color: var(--color-grey-dark);
+
+    .subtitle {
+        font-size: var(--font-xx-small-size);
+        margin-bottom: 8px;
+    }
+
+    .cards_container {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .category_card {
+            width: 48%;
+            height: 60px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-xx-small-size);
+    }
+
+    .highlight {
+        color: var(--color-pink-dark);
+    }
+}
