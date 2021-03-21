@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './breadcrumbs.scss';
 
 const Breadcrumbs = ({ path = [] }) => {
-    console.log(path);
-
     return (
         <div className='breadcrumbs'>
             <Link to='/'>página inicial</Link>

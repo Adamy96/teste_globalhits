@@ -14,7 +14,7 @@ export const useProducts = () => {
     const { cart, setCart } = useContext(CartContext);
 
     const fetchProducts = () => {
-        axios.get('http://makeup-api.herokuapp.com/api/v1/products.json')
+        axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
             .then( res => {
                 setProducts(res.data);
                 setLoading(false);

@@ -13,8 +13,6 @@ import './homepage.scss';
 const Homepage = () => {
     const { products, loading } = useProducts();
 
-    console.log(!products);
-
     return (
         <>
             <Navbar />
