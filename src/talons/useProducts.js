@@ -20,7 +20,7 @@ export const useProducts = () => {
     } = useContext(CartContext);
 
     const fetchProducts = () => {
-        axios.get('http://makeup-api.herokuapp.com/api/v1/products.json')
+        axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
             .then( res => {
                 setProducts(res.data);
                 setError(false);
@@ -46,13 +46,13 @@ export const useProducts = () => {
     }
 
     const addToCart = (id, color, quantity, openMinicart = false) => {
-        const alreadyOnCart = cart.find(cartProduct => {
+        const productOnCart = cart.find(cartProduct => {
             if (cartProduct.id === id) {
                 return cartProduct.selected_color.hex_value == color.hex_value;
             }
         });
 
-        if (!alreadyOnCart) {
+        if (!productOnCart) {
             setCart([
                 {
                     ...getProductDetails(id),
@@ -62,14 +62,8 @@ export const useProducts = () => {
                 ...cart
             ]);
         } else {
-            const productOnCart = cart.find(cartProduct => {
-                if (cartProduct.id === id) {
-                    return cartProduct.selected_color.hex_value == color.hex_value;
-                }
-            });
             const newCart = cart.filter(cartProduct => {
                 if (cartProduct.id !== id) return true;
-
                 return cartProduct.selected_color.hex_value !== color.hex_value;
             });
 

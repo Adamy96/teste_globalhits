@@ -12,7 +12,7 @@ export const useCategory = (categoryName) => {
     } = useContext(CategoryContext);
 
     const fetchCategory = () => {
-        axios.get(`http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${categoryName}`)
+        axios.get(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${categoryName}`)
             .then( res => {
                 const newCategories = categories.filter(category => (
                     category.name !== categoryName
