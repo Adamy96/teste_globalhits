@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function (...components) {
+const combineComponents = (...components) => {
 	return components.reduce(
 		(AccumulatedComponents, CurrentComponent) => {
 			return ({ children }) => {
@@ -14,3 +14,5 @@ export default function (...components) {
 		({ children }) => <>{children}</>
 	);
 };
+
+export default combineComponents;

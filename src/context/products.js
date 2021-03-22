@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 export const ProductsContext = createContext();
 
-export default function ({ children }) {
+const ProductContextProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState({});
@@ -22,3 +22,5 @@ export default function ({ children }) {
         </ProductsContext.Provider>
     );
 }
+
+export default ProductContextProvider;

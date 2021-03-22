@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useContext } from 'react';
 import axios from 'axios';
 import { CategoryContext } from '@context/category';
@@ -8,10 +8,12 @@ export const useCategory = (categoryName) => {
         categories,
         setCategories,
         loading,
-        setLoading
+        setLoading,
+        error,
+        setError
     } = useContext(CategoryContext);
 
-    const fetchCategory = () => {
+    const fetchCategory = useCallback(() => {
         axios.get(`http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${categoryName}`)
             .then( res => {
                 const newCategories = categories.filter(category => (
@@ -29,9 +31,9 @@ export const useCategory = (categoryName) => {
             })
             .catch( err => {
                 setLoading(false);
-                throw new Error(err);
+                setError(err);
             });
-    }
+    }, [categories, categoryName, setCategories, setLoading, setError]);
 
     const { products } = categories.find(category => (
         category.name === categoryName
@@ -42,10 +44,12 @@ export const useCategory = (categoryName) => {
             setLoading(true);
             fetchCategory();
         }
-    }, []);
+    }, [fetchCategory, products.length, setLoading]);
 
     return {
         products,
-        loading
+        loading,
+        error,
+        setError
     };
 }

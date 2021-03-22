@@ -13,7 +13,7 @@ import './homepage.scss';
 const Homepage = () => {
     const { products, loading, error } = useProducts();
 
-    if (Object.keys(error) != 0) return <Redirect to="/error" />
+    if (Object.keys(error).length !== 0) return <Redirect to="/error" />
 
     return (
         <div className='homepage'>

@@ -26,7 +26,7 @@ const ProductPage = () => {
         if (products.length !== 0 && id) {
             setCurrentProduct(getProductDetails(id));
         }
-    }, [products, id]);
+    }, [products, id, getProductDetails]);
 
     useEffect(() => {
         if (currentProduct.product_type && path.length < 2) {
@@ -38,7 +38,7 @@ const ProductPage = () => {
                 ...path
             ]);
         }
-    }, [currentProduct]);
+    }, [currentProduct, path]);
     
     const checkAvailableProduct = () => {
         return (
@@ -47,12 +47,12 @@ const ProductPage = () => {
             );
         }
         
-    if (Object.keys(error) != 0) return <Redirect to="/error" />
+    if (Object.keys(error).length !== 0) return <Redirect to="/error" />
 
     return (
         <div className='product_page'>
             {loading && <LoadingIndicator />}
-            {!(Object.keys(currentProduct) == 0) &&
+            {Object.keys(currentProduct).length !== 0 &&
                 <>
                     <Breadcrumbs path={path} />
                     <ProductInfo currentProduct={currentProduct} />

@@ -18,12 +18,12 @@ const ProductCard = ({
 
     useEffect(() => {
         const colorsLength = product_colors.length;
-        if (product_colors.length === 1) {
+        if (colorsLength === 1) {
             setColorsText('1 cor disponível');
         } else {
             setColorsText(`${colorsLength} cores disponíveis`);
         }
-    }, []);
+    }, [product_colors.length]);
 
     return (
         <Card className='catalog_product_card'>

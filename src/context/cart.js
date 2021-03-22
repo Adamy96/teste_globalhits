@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
-export default function ({ children }) {
+const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [minicartOpen, setMinicartOpen] = useState(false);
 
@@ -19,3 +19,5 @@ export default function ({ children }) {
         </CartContext.Provider>
     )
 }
+
+export default CartContextProvider;

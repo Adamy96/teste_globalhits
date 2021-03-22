@@ -1,9 +1,8 @@
 import React from 'react';
-import { Breadcrumbs, ProductCard } from '@components';
 import { useCart } from '@talons/useCart';
+import { Button } from '@material-ui/core';
+import { Breadcrumbs, CartProducts } from '@components';
 import './cartPage.scss';
-import { Button, Container } from '@material-ui/core';
-import { CartProducts } from '@components';
 
 const CartPage = () => {
     const { cart, setCart, grandTotal } = useCart();

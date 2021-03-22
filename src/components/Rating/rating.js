@@ -5,7 +5,7 @@ import { Container, Typography } from '@material-ui/core';
 
 const Rating = ({ rating }) => {
     const stars = new Array(5).fill('');
-    const [reviewCount, setReviewCount] = useState(
+    const [reviewCount] = useState(
         rating > 0 ? (Math.random(1, 200) * 100).toFixed(0) : 0
     );
 

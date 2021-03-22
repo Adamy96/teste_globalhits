@@ -5,7 +5,7 @@ import './productColors.scss';
 const ProductColors = ({ colors, selectedColor, setSelectedColor }) => {
     useEffect(() => {
         setSelectedColor(colors[0]);
-    }, []);
+    }, [colors, setSelectedColor]);
 
     return (
         <div className='product_colors'>
