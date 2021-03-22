@@ -14,9 +14,7 @@ const Navbar = () => {
                 <Link to='/'>
                     <img src={Logo} alt='Logo name' />
                 </Link>
-                <Link to='/cart'>
-                    <Minicart />
-                </Link>
+                <Minicart />
             </div>
 
             <div className='searchbar'>

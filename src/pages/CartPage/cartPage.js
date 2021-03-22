@@ -1,40 +1,31 @@
 import React from 'react';
-import {
-    Breadcrumbs,
-    Navbar,
-    ProductCard
-} from '@components';
+import { Breadcrumbs, ProductCard } from '@components';
 import { useCart } from '@talons/useCart';
 import './cartPage.scss';
-import { Button, Container, Typography } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
+import { CartProducts } from '@components';
 
 const CartPage = () => {
     const { cart, setCart, grandTotal } = useCart();
-
     const path = [{
         name: `carrinho`,
         link: `/cart`
     }];
 
     return (
-        <>
-            <Navbar />
-            <div className='cart_page'>
-                <Breadcrumbs path={path} />
-
-                <Container className='products_container'>
-                    {cart.map((product, idx) => (
-                        <ProductCard {...product} isCart={true} key={idx} />
-                    ))}
-                </Container>
-
-                <Button onClick={() => setCart([])}>
-                    limpar carrinho
-                </Button>
-
-                {grandTotal}
-            </div>
-        </>
+        <div className='cart_page'>
+            <Breadcrumbs path={path} />
+            <CartProducts cart={cart} />
+            {
+                cart.length > 0 && 
+                    <div className='summary'>
+                        <Button onClick={() => setCart([])}>
+                            limpar carrinho
+                        </Button>
+                        Total: {grandTotal}
+                    </div>
+            }
+        </div>
     )
 }
 

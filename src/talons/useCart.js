@@ -2,7 +2,12 @@ import { useContext } from 'react';
 import { CartContext } from '@context/cart';
 
 export const useCart = () => {
-    const { cart, setCart } = useContext(CartContext);
+    const {
+        cart,
+        setCart,
+        minicartOpen,
+        setMinicartOpen
+    } = useContext(CartContext);
 
     const removeProduct = (id, color) => {
         const newCart = cart.filter(cartProduct => {
@@ -22,6 +27,8 @@ export const useCart = () => {
         cartLength: cart.length,
         setCart,
         removeProduct,
-        grandTotal: grandTotal.toFixed(2)
+        grandTotal: grandTotal.toFixed(2),
+        minicartOpen,
+        setMinicartOpen
     }
 }

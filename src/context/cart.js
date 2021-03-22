@@ -4,12 +4,15 @@ export const CartContext = createContext();
 
 export default function ({ children }) {
     const [cart, setCart] = useState([]);
+    const [minicartOpen, setMinicartOpen] = useState(false);
 
     return (
         <CartContext.Provider
             value={{
                 cart,
-                setCart
+                setCart,
+                minicartOpen,
+                setMinicartOpen
             }}
         >
             {children}

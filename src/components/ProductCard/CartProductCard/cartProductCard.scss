@@ -1,7 +1,6 @@
 .cart_product_card {
     padding: 11px;
     border-radius: 6px;
-    display: flex;
     min-height: 132px;
 
     &.MuiPaper-elevation1 {
@@ -12,51 +11,102 @@
         padding: 0;
     }
 
-    .left-side {
+    .header {
         display: flex;
-        flex-direction: column;
-        max-width: 84px;
-        margin-right: 8px;
 
-        img {
-            width: 100%;
-            height: 84px;
-            object-fit: cover;
-            margin-bottom: 8px;
+        .left-side {
+            display: flex;
+            flex-direction: column;
+            max-width: 84px;
+            margin-right: 8px;
+    
+            img {
+                width: 100%;
+                height: 84px;
+                object-fit: cover;
+                margin-bottom: 8px;
+            }
+        }
+    
+        .right-side {
+            color: var(--color-grey-dark);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+    
+            .brand {
+                text-transform: capitalize;
+                font-size: var(--font-medium-size);
+                margin-bottom: 5px;
+            }
+    
+            .name {
+                font-size: var(--font-xx-small-size);
+                margin-bottom: 4px;
+            }
+    
+            .color_container {
+                display: flex;
+                align-items: center;
+                
+                p {
+                    font-weight: var(--font-semi-bold-weight);
+                }
+    
+                .selected_color {
+                    display: inline-block;
+                    height: 22px;
+                    width: 22px;
+                    margin-left: 6px;
+                    border: 1px solid var(--color-grey-medium);
+                }
+            }
+            
+            .delete {
+                position: absolute;
+                display: flex;
+                width: auto;
+                right: 0;
+                flex-direction: column;
+                align-items: center;
+    
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+    
+                span {
+                    margin-top: 2px;
+                    font-style: italic;
+                    font-size: var(--font-xxxx-small-size);
+                }
+            }
         }
     }
 
-    .right-side {
-        color: var(--color-grey-dark);
-        position: relative;
+    .footer {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 10px;
 
-        .brand {
-            text-transform: capitalize;
-            font-size: var(--font-medium-size);
-            margin-bottom: 5px;
-        }
-
-        .name {
-            font-size: var(--font-xx-small-size);
-            margin-bottom: 4px;
-        }
-
-        .color_container {
+        .quantity_changer {
             display: flex;
-            align-items: center;
-            
-            p {
-                font-weight: var(--font-semi-bold-weight);
+            width: 84px;
+            border-radius: 2px;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+            padding: 2px 0;
+            margin: 0;
+
+            span {
+                width: 33%;
+                text-align: center;
+                color: var(--color-grey-medium);
             }
 
-            .selected_color {
-                display: inline-block;
-                height: 22px;
-                width: 22px;
-                margin-left: 6px;
-                border: 1px solid var(--color-grey-medium);
+            .quantity {
+                color: var(--color-grey-dark);
+                font-size: var(--font-xx-small-size);
+                font-weight: var(--font-bold-weight);
             }
         }
 
@@ -64,26 +114,6 @@
             align-self: flex-end;
             color: var(--color-pink-dark);
             font-weight: var(--font-bold-weight);
-        }
-
-        .delete {
-            position: absolute;
-            display: flex;
-            width: auto;
-            right: 0;
-            flex-direction: column;
-            align-items: center;
-
-            svg {
-                width: 18px;
-                height: 18px;
-            }
-
-            span {
-                margin-top: 2px;
-                font-style: italic;
-                font-size: var(--font-xxxx-small-size);
-            }
         }
     }
 }

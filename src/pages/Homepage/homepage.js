@@ -3,27 +3,26 @@ import {
     Breadcrumbs,
     Categories,
     LoadingIndicator,
-    Navbar,
     TopSelling
 } from '@components';
+import { Redirect } from 'react-router-dom';
 import { Divider } from '@material-ui/core';
 import { useProducts } from '@talons/useProducts'
 import './homepage.scss';
 
 const Homepage = () => {
-    const { products, loading } = useProducts();
+    const { products, loading, error } = useProducts();
+
+    if (Object.keys(error) != 0) return <Redirect to="/error" />
 
     return (
-        <>
-            <Navbar />
-            <div className='homepage'>
-                {loading && <LoadingIndicator />}
-                <Breadcrumbs />
-                <Categories />
-                <Divider />
-                <TopSelling products={products} />
-            </div>
-        </>
+        <div className='homepage'>
+            {loading && <LoadingIndicator />}
+            <Breadcrumbs />
+            <Categories />
+            <Divider />
+            <TopSelling products={products} />
+        </div>
     )
 }
 

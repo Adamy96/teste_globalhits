@@ -4,24 +4,4 @@
     .parcel_options {
         margin: 9px 0 9px -9px;
     }
-
-    .product_colors {
-        margin-bottom: 20px;
-    }
-
-    .add_btn {
-        margin: 25px 0;
-        width: calc(100% + 16px);
-        margin-left: -8px;
-        background-color: var(--color-green);
-        color: var(--color-white);
-        border-radius: 0;
-        height: 55px;
-        font-size: var(--font-medium-size);
-        font-weight: var(--font-ultra-weight);
-
-        &:hover {
-            background-color: var(--color-green);
-        }
-    }
 }

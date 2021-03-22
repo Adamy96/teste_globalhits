@@ -1,12 +1,20 @@
 .cart_page {
     padding: 115px 8px 0;
 
-    .products_container {
+    .cart_products_container {
         margin-top: 16px;
         padding: 0;
 
         .cart_product_card {
             margin-bottom: 12px;
         }
+    }
+
+    .summary {
+        color: var(--color-pink-dark);
+        font-weight: var(--font-ultra-weight);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

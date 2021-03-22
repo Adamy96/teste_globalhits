@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { useProducts } from '@talons/useProducts'
-import { Button } from '@material-ui/core';
 import './productPage.scss';
 import {
     Breadcrumbs,
     LoadingIndicator,
-    Navbar,
     ParcelOptions,
-    ProductColors,
+    ProductAvailable,
     ProductInfo,
-    ProductQuantity
 } from '@components';
+import ProductNotAvailable from '../../components/ProductNotAvailable/productNotAvailable';
 
 const ProductPage = () => {
     const { id } = useParams();
-    const { addToCart, products, getCurrentProduct, loading } = useProducts();
+    const { addToCart, products, getProductDetails, loading, error } = useProducts();
     const [currentProduct, setCurrentProduct] = useState({});
     const [selectedColor, setSelectedColor] = useState({});
     const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -26,7 +24,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         if (products.length !== 0 && id) {
-            setCurrentProduct(getCurrentProduct(id));
+            setCurrentProduct(getProductDetails(id));
         }
     }, [products, id]);
 
@@ -41,40 +39,38 @@ const ProductPage = () => {
             ]);
         }
     }, [currentProduct]);
+    
+    const checkAvailableProduct = () => {
+        return (
+            currentProduct.product_colors.length > 0 &&
+            currentProduct.price > 0
+            );
+        }
+        
+    if (Object.keys(error) != 0) return <Redirect to="/error" />
 
     return (
-        <>
-            <Navbar />
-            <div className='product_page'>
-                {loading && <LoadingIndicator />}
-                {!(Object.keys(currentProduct) == 0) &&
-                    <>
-                        <Breadcrumbs path={path} />
-                        <ProductInfo currentProduct={currentProduct} />
-                        <ParcelOptions value={12} />
-                        <ProductColors
-                            colors={currentProduct.product_colors}
-                            selectedColor={selectedColor}
-                            setSelectedColor={setSelectedColor}
-                        />
-                        <ProductQuantity
-                            selectedQuantity={selectedQuantity}
-                            setSelectedQuantity={setSelectedQuantity}
-                        />
-                        <Button
-                            className='add_btn'
-                            onClick={() => addToCart(
-                                currentProduct, 
-                                selectedColor,
-                                selectedQuantity
-                            )}
-                        >
-                            Adicionar à sacola
-                        </Button>
-                    </>
-                }
-            </div>
-        </>
+        <div className='product_page'>
+            {loading && <LoadingIndicator />}
+            {!(Object.keys(currentProduct) == 0) &&
+                <>
+                    <Breadcrumbs path={path} />
+                    <ProductInfo currentProduct={currentProduct} />
+                    <ParcelOptions value={12} />
+                    {
+                        checkAvailableProduct() ? 
+                            <ProductAvailable
+                                addToCart={addToCart}
+                                currentProduct={currentProduct}
+                                selectedColor={selectedColor}
+                                setSelectedColor={setSelectedColor}
+                                selectedQuantity={selectedQuantity}
+                                setSelectedQuantity={setSelectedQuantity}
+                            /> : <ProductNotAvailable />
+                    }
+                </>
+            }
+        </div>
     )
 }
 

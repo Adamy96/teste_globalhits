@@ -5,6 +5,7 @@ export const ProductsContext = createContext();
 export default function ({ children }) {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState({});
 
     return (
         <ProductsContext.Provider
@@ -12,7 +13,9 @@ export default function ({ children }) {
                 products,
                 setProducts,
                 loading,
-                setLoading
+                setLoading,
+                error,
+                setError
             }}
         >
             {children}

@@ -25,7 +25,7 @@ const ProductInfo = ({ currentProduct }) => {
                 Por apenas
                 <Box component='span' className='highlight'>
                     &nbsp;{price_sign}
-                    &nbsp;{parseInt(price).toFixed(2)}
+                    &nbsp;{parseFloat(price).toFixed(2)}
                 </Box>
             </Typography>
         </Container>

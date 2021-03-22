@@ -20,18 +20,15 @@ const CategoryPage = () => {
     }]
 
     return (
-        <>
-            <Navbar />
-            <div className='category_page'>
-                {loading && <LoadingIndicator />}
-                <Breadcrumbs path={path}/>
-                <Container className='products_container'>
-                    {products.map((product, idx) => (
-                        <ProductCard {...product} key={idx} />
-                    ))}
-                </Container>
-            </div>
-        </>
+        <div className='category_page'>
+            {loading && <LoadingIndicator />}
+            <Breadcrumbs path={path}/>
+            <Container className='products_container'>
+                {products.map((product, idx) => (
+                    <ProductCard {...product} key={idx} />
+                ))}
+            </Container>
+        </div>
     )
 }
 
