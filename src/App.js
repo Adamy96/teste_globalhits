@@ -4,6 +4,8 @@ import { Routes } from "@components";
 import { AppContextProvider } from './AppContextProvider';
 import "@design/main.scss";
 
+// Tag test
+
 function App() {
 	return (
 		<AppContextProvider>
